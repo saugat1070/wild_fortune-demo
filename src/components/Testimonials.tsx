@@ -1,12 +1,13 @@
-import { useState } from 'react'
-import { testimonials } from '../data'
-import Section from './Section'
-import { Star, ChevronDown } from './icons'
+import { useState } from "react";
+import { testimonials } from "../data";
+import Section from "./Section";
+import { Star, ChevronDown } from "./icons";
 
 export default function Testimonials() {
-  const [index, setIndex] = useState(0)
-  const go = (dir: number) => setIndex((i) => (i + dir + testimonials.length) % testimonials.length)
-  const t = testimonials[index]
+  const [index, setIndex] = useState(0);
+  const go = (dir: number) =>
+    setIndex((i) => (i + dir + testimonials.length) % testimonials.length);
+  const t = testimonials[index];
 
   return (
     <Section
@@ -27,7 +28,9 @@ export default function Testimonials() {
           <div className="mt-6 flex items-center justify-center gap-3">
             <div
               className="flex h-12 w-12 items-center justify-center rounded-full font-display text-lg font-black text-white shadow-md shadow-purple-900/40"
-              style={{ background: `linear-gradient(135deg, ${t.from}, ${t.to})` }}
+              style={{
+                background: `linear-gradient(135deg, ${t.from}, ${t.to})`,
+              }}
             >
               {t.name[0]}
             </div>
@@ -54,7 +57,9 @@ export default function Testimonials() {
                 aria-label={`Go to testimonial ${i + 1}`}
                 onClick={() => setIndex(i)}
                 className={`h-2 rounded-full transition-all ${
-                  i === index ? 'w-6 gold-gradient shadow-sm shadow-purple-500/40' : 'w-2 bg-white/20 hover:bg-white/40'
+                  i === index
+                    ? "w-6 gold-gradient shadow-sm shadow-purple-500/40"
+                    : "w-2 bg-white/20 hover:bg-white/40"
                 }`}
               />
             ))}
@@ -69,5 +74,5 @@ export default function Testimonials() {
         </div>
       </div>
     </Section>
-  )
+  );
 }
