@@ -1,0 +1,10 @@
+{
+  "description": "Experience free-to-play casino games with real rewards through sweepstakes, offering a glamorous and engaging platform for players to enjoy and win.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

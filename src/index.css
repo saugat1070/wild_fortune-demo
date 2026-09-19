@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-display: 'Montserrat', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  --color-midnight: #0b0518;
+  --color-midnight-2: #14092b;
+  --color-navy-panel: #1d0e3e;
+  --color-purple-deep: #160a30;
+  --color-purple-panel: #1d0e3e;
+  --color-purple-card: #25134f;
+  --color-gold: #c084fc;
+  --color-gold-light: #f0abfc;
+  --color-gold-deep: #9333ea;
+  --color-purple: #a855f7;
+  --color-purple-soft: #d8b4fe;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: #0b0518;
+  background-image:
+    radial-gradient(70% 55% at 85% 0%, rgba(168, 85, 247, 0.22), transparent 60%),
+    radial-gradient(55% 45% at 10% 20%, rgba(192, 132, 252, 0.14), transparent 55%),
+    radial-gradient(60% 50% at 50% 80%, rgba(126, 34, 206, 0.18), transparent 65%),
+    radial-gradient(40% 40% at 80% 90%, rgba(217, 70, 239, 0.12), transparent 50%);
+  background-attachment: fixed;
+  color: #ffffff;
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgba(168, 85, 247, 0.35);
+  color: #fff;
+}
+
+/* Hide scrollbars until scrolling (best-effort) */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(168, 85, 247, 0.4) transparent;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background: rgba(168, 85, 247, 0.35);
+  border-radius: 999px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: rgba(168, 85, 247, 0.55);
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@utility gold-text {
+  background: linear-gradient(135deg, #f5d0fe 0%, #d8b4fe 40%, #a855f7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+@utility gold-gradient {
+  background: linear-gradient(135deg, #c084fc 0%, #a855f7 45%, #7e22ce 100%);
+}
+
+@utility glass {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(168, 85, 247, 0.04));
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(192, 132, 252, 0.15);
+}
+
+.gold-glow {
+  box-shadow: 0 10px 40px -12px rgba(168, 85, 247, 0.65);
+}
+
+/* Winners ticker marquee */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+.marquee-pause:hover .animate-marquee {
+  animation-play-state: paused;
+}
+
+/* Floating hero elements */
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-18px) rotate(6deg);
+  }
+}
+@keyframes float-fast {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-26px) rotate(-8deg);
+  }
+}
+.float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
+.float-fast {
+  animation: float-fast 4.5s ease-in-out infinite;
+}
+
+/* Sparkle particles */
+@keyframes sparkle-rise {
+  0% {
+    transform: translateY(0) scale(0.6);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-120px) scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.spin-slow {
+  animation: spin-slow 18s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-marquee,
+  .float-slow,
+  .float-fast,
+  .spin-slow {
+    animation: none;
+  }
+}
